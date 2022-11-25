@@ -124,3 +124,17 @@ services:
             - /home/user/data2/data:/downloads 
         network_mode: host #8686:8686
         restart: unless-stopped
+    
+    prowlarr:
+        image: lscr.io/linuxserver/prowlarr:develop
+        container_name: prowlarr
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=America/New_York
+        volumes:
+            # put your directory here
+            - /home/user/data2/prowlarr/config:/config
+        network_mode: host # port 9696
+        restart: unless-stopped
+    
